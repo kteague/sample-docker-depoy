@@ -18,13 +18,19 @@ def main(base_dir, git_repo):
     print("CMD: cloning git repo %s at tag %s" % (git_repo, tag))
     subprocess.call(cmd, shell=True)
     
-    # create Docker image
-    cmd = "/usr/local/bin/docker build -t %s:%s %s" % (app_name, tag, images_dir)
-    print("CMD: Building Docker image as %s:%s" % (app_name, tag))
-    subprocess.call(cmd, shell=True)
+    if not build_id:
+        # create Docker image
+        cmd = "/usr/local/bin/docker build -t %s:%s %s" % (app_name, tag, images_dir)
+        print("CMD: Building Docker image as %s:%s" % (app_name, tag))
+        subprocess.call(cmd, shell=True)
+        
+    else build_id:
+        # create Docker image
+        cmd = "/usr/local/bin/docker build -t %s:%s_%s %s" % (app_name, tag, build_id, images_dir)
+        print("CMD: Building Docker image as %s:%s_%s" % (app_name, tag, build_id))
+        subprocess.call(cmd, shell=True)
 
-    # create a tag of this deployment project
-    if build_id:
+        # create a tag of this deployment project
         print("CMD: tagging deployment configuration as tag %s and build_id %s" % (tag, build_id))
         cmd = "git commit %s -m 'saving config changes'" % images_dir
         subprocess.call(cmd, shell=True)
