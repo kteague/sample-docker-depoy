@@ -64,7 +64,7 @@ The file at `images\requirements.txt` contains a list of the specific versions o
 library in the project. Edit this file to change the library versions, then run the command
 with a build_id argument:
 
-    ./bin/create_docker_image 1.2 1
+    ./bin/create_docker_image 1.2 extra_name_or_id
 
 When a build id is used it will commit the changes to the config in the images directory
 and create a tag of these changes.
