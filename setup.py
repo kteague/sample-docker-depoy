@@ -26,6 +26,6 @@ setup(name='sample-docker-deploy',
       tests_require=requires,
       entry_points="""\
       [console_scripts]
-      build_docker_image = deploy:main
+      create_docker_image = deploy:main
       """,
 )
