@@ -24,7 +24,7 @@ def main(base_dir, git_repo):
         print("CMD: Building Docker image as %s:%s" % (app_name, tag))
         subprocess.call(cmd, shell=True)
         
-    else build_id:
+    else:
         # create Docker image
         cmd = "/usr/local/bin/docker build -t %s:%s_%s %s" % (app_name, tag, build_id, images_dir)
         print("CMD: Building Docker image as %s:%s_%s" % (app_name, tag, build_id))
