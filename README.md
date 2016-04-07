@@ -5,11 +5,18 @@ Build the sample-app into a Docker image.
 
 ## Install and run
 
-For development, to install use the buildout.cfg supplied:
+First, clone the git repo:
 
+    git clone https://github.com/kteague/sample-docker-depoy.git sample-docker-deploy
+
+You will need a copy of Python 3 installed (tested with 3.5.0). Then install using Buildout.
+The Python bootsrap.py script will install a copy of the build tool Buildout in the local
+bin directory:
+
+    cd sample-docker-deploy
     python3.5 bootstrap.py
     ./bin/buildout
-    
+
 This will generate the script at:
 
      ./bin/create_docker_image
