@@ -28,6 +28,8 @@ COPY ./pyramid.wsgi /var/sample-app-env/
 
 COPY ./production.ini /var/sample-app-env/
 
+COPY httpd.vars /etc/sysconfig/httpd
+
 # forward the Apache logs to the Docker logging collector
 RUN ln -sf /dev/stdout /etc/httpd/logs/access_log
 RUN ln -sf /dev/stderr /etc/httpd/logs/error_log
